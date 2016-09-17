@@ -9,14 +9,14 @@ import javax.ws.rs.core.Response.Status;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.jaxrs.cxf.rest.bo.Department;
 import com.jaxrs.cxf.rest.bo.Greeting;
 import com.jaxrs.cxf.rest.bo.NewDepartment;
 import com.jaxrs.cxf.rest.dao.DepartmentDAOImpl;
 
-@Component("departmentService")
+@Service("departmentService")
 public class DepartmentServiceImpl implements DepartmentService {
 
 	private static final Logger logger = LoggerFactory.getLogger(DepartmentServiceImpl.class);

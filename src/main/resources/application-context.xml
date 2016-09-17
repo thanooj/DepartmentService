@@ -12,10 +12,9 @@
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
-	<context:component-scan base-package="com.jaxrs.cxf.rest.departmentservice" />
+	<context:component-scan base-package="com.jaxrs.cxf.rest" />
 
-	<jaxrs:server id="departmentService"
-		address="/rest">
+	<jaxrs:server id="departmentServiceServer" address="/rest">
 		<jaxrs:serviceBeans>
 			<ref bean="departmentService" />
 		</jaxrs:serviceBeans>
@@ -23,28 +22,13 @@
 			<bean id="jacksonProviderId" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
 		</jaxrs:providers>
 	</jaxrs:server>
-
-<!-- 	<bean id="customerDao" class="com.jaxrs.cxf.rest.dao.CustomerDAOImpl"/>
-
-	<bean id="employeeDao" class="com.jaxrs.cxf.rest.dao.EmployeeDAOImpl" /> -->
-
-	<bean id="customerDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<bean id="departmentDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
-		<property name="driverClass" value="${customer_jdbc.driverClassName}" />
-		<property name="jdbcUrl" value="${customer_jdbc.url}" />
-		<property name="user" value="${customer_jdbc.username}" />
-		<property name="password" value="${customer_jdbc.password}" />
+		<property name="driverClass" value="${department_jdbc.driverClassName}" />
+		<property name="jdbcUrl" value="${department_jdbc.url}" />
+		<property name="user" value="${department_jdbc.username}" />
+		<property name="password" value="${department_jdbc.password}" />
 	</bean>
-
-	<bean id="employeeDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		destroy-method="close">
-		<property name="driverClass" value="${employee_jdbc.driverClassName}" />
-		<property name="jdbcUrl" value="${employee_jdbc.url}" />
-		<property name="user" value="${employee_jdbc.username}" />
-		<property name="password" value="${employee_jdbc.password}" />
-	</bean>
-
-	<!-- <jdbc:initialize-database data-source="dataSource"> <jdbc:script location="classpath:db-schema.sql" 
-		/> </jdbc:initialize-database> -->
+	
 	<context:property-placeholder location="classpath:*_jdbc.properties" />
 </beans>

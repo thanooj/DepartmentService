@@ -8,17 +8,21 @@ public class Department {
 	private Integer id;
 	private String name;
 	private String location;
-	private Integer eIds;
 
 	public Department() {
 	}
+	
+	public Department(String name, String location) {
+		super();
+		this.name = name;
+		this.location = location;
+	}
 
-	public Department(Integer id, String name, String location, Integer eIds) {
+	public Department(Integer id, String name, String location) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.location = location;
-		this.eIds = eIds;
 	}
 
 	public Integer getId() {
@@ -45,17 +49,10 @@ public class Department {
 		this.location = location;
 	}
 
-	public Integer geteIds() {
-		return eIds;
-	}
-
-	public void seteIds(Integer eIds) {
-		this.eIds = eIds;
-	}
 
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", name=" + name + ", location=" + location + ", eIds=" + eIds + "]";
+		return "Department [id=" + id + ", name=" + name + ", location=" + location + "]";
 	}
 
 }
