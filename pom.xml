@@ -4,9 +4,10 @@
 	<groupId>com.jaxrs.cxf.departmentservice</groupId>
 	<artifactId>DepartmentService</artifactId>
 	<version>1.0</version>
-	<packaging>war</packaging>
+	<packaging>pom</packaging>
 	<name>DepartmentService</name>
 	<description>Department Service JAX-RS</description>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -93,4 +94,9 @@
 			</plugin>
 		</plugins>
 	</build>
+	<modules>
+		<module>DepartmentService-bo</module>
+		<module>DepartmentService-web</module>
+		<module>DepartmentService-dao</module>
+	</modules>
 </project>
